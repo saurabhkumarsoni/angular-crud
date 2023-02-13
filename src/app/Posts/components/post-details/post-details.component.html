@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td>Title</td>
+      <td>Category</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of posts">
+      <td>{{ post.id }}</td>
+      <td>{{ post.title }}</td>
+      <td>{{ post.categoryId }}</td>
+    </tr>
+  </tbody>
+</table>
