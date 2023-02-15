@@ -16,6 +16,7 @@ import { AddPostComponent } from './Posts/components/add-post/add-post.component
 import { LoginComponent } from './Auth/components/login/login.component';
 import { RegisterComponent } from './Auth/components/register/register.component';
 import { LoaderComponent } from './loader/loader.component';
+import { UserService } from './home/service/user.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { LoaderComponent } from './loader/loader.component';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

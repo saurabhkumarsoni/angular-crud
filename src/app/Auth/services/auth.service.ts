@@ -8,16 +8,16 @@ import { IUserDetails } from '../models/IUserDetails';
 })
 export class AuthService {
   userDetails: IUserDetails | null = null;
-  apiKey = 'AIzaSyAXajwxefWR0jxinLfkdFhIq1RFBrKh5vU';
+  url!: 'https://api.escuelajs.co/api/v1/auth/login'
   loggedInEvent = new EventEmitter<boolean>();
 
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<IUserDetails> {
+   
     return this.http
       .post<IUserDetails>(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}
-    `,
+        this.url,
         { email, password, returnSecureToken: true }
       )
       .pipe(
@@ -32,8 +32,7 @@ export class AuthService {
   register(email: string, password: string): Observable<IUserDetails> {
     return this.http
       .post<IUserDetails>(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}
-    `,
+        this.url,
         { email, password, returnSecureToken: true }
       )
       .pipe(

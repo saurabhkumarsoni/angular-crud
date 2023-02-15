@@ -1,1 +1,30 @@
-<p>home works!</p>
+<div class="container mt-3">
+    <h2>Table Head Colors</h2>
+    <p>You can use any of the contextual classes to only add a color to the table header:</p>
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>password</th>
+          <th>Role</th>
+          <th>updatedAt</th>
+          <th>creationAt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td><img src={{user.avatar}} class="avtar"/></td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.role}}</td>
+          <td>{{user?.updatedAt | date: 'dd/MM/yyyy'}}</td>
+          <td>{{user?.creationAt | date: 'dd/MM/yyyy'}}</td>
+        </tr>
+      
+      </tbody>
+    </table>
+   
+  </div>
